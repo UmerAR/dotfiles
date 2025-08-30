@@ -1,0 +1,10 @@
+background = 000000
+background-opacity = 0.55
+background-blur = false
+confirm-close-surface = false
+
+shell-integration-features = no-cursor
+
+# Disable Ctrl+Enter fullscreen keybind
+keybind = ctrl+enter=unbind
+
