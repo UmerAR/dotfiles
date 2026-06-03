@@ -118,6 +118,17 @@ alias v="nvim"
 alias view="viewnior"
 alias open="xdg-open"
 alias yup='yadm list -a | xargs -r yadm add && yadm commit -m "auto update" && yadm push'
+alias nmtui='nmcli device wifi rescan; sleep 1 && nmtui'
+
+winboot() {
+    WINID=$(efibootmgr | awk '/Windows Boot Manager/ {print $1}' | sed 's/Boot//; s/\*//')
+
+    if sudo efibootmgr -n "$WINID"; then
+        reboot
+    else
+        echo "Failed to set Windows boot entry"
+    fi
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
